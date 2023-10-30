@@ -1,0 +1,16 @@
+body{
+    --theme-color-light:#e60023;
+    --theme-color-dark:#ad081b;
+    padding: 20px;
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+    color:inherit;
+    text-decoration: none;
+}
+
