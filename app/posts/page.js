@@ -2,35 +2,41 @@
 
 import { useEffect, useState } from "react";
 
-export default function AllPostsPage (){
-    var [posts, setPosts] = useState([]);
-    var [isLoading, setIsLoading] = useState(false);
+export default function AllPostsPage()
+{
+    const[posts,setPosts]= useState([]);
+    const[isLoading,setIsLoading]=useState(false);
 
     useEffect(() => {
         setIsLoading(true);
         fetch("/posts.json")
-        .then ((response) => response.json())
-        .then((data)=> {
-            setPosts(data.posts);
-            setIsLoading(false);
-        });
-        
+            .then((response) => response.json())
+            .then((data) => {
+                setPosts(data.posts);
+                setIsLoading(false);
+            });
     },[]);
 
-    if(isLoading){
-        return <p>Loading...</p>
+    if (isLoading) {
+        return <p>Loading ...</p>;
     }
 
-    return (
+    return(
         <>
-            <h1>All posts</h1>
+            <h1>All Posts</h1>
             <ul>
-                {posts.map((posts)=>(
-                    <li key={posts.id}>{posts.title}</li>
-                )
-                )}
+                {posts.map((post) => (
+                    <li key={post.id}>{post.title}</li>
+                ))}
             </ul>
         </>
-    )
-
+    );
+    
 }
+
+/*
+export default function AllPostsPage()
+{
+    return <h1>All Posts</h1>;
+}
+*/
